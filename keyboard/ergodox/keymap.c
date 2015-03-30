@@ -91,7 +91,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         // left hand
         EQL, 1,   2,   3,   4,   5,   ESC,
-        BSLS,Q,   W,   F,   P,   G,   FN2,
+        BSLS,Q,   W,   F,   P,   G,   FN11,
         TAB, A,   R,   S,   T,   D,
          FN6,Z,   X,   C,   V,   B,   FN8,
         LGUI,GRV, BSLS,LEFT,RGHT,
@@ -111,13 +111,13 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 1: qwerty
         // left hand
         EQL, 1,   2,   3,   4,   5,   ESC,
-        BSLS,Q,   W,   E,   R,   T,   FN2,
+        BSLS,Q,   W,   E,   R,   T,   FN11,
         TAB, A,   S,   D,   F,   G,
         FN6, Z,   X,   C,   V,   B,   FN7,
         LGUI,GRV, BSLS,LEFT,RGHT,
                                       LCTL,LALT,
-                                           HOME,
-                                 FN5,FN3, END,
+                                           VOLU,
+                                  FN5,FN3, VOLD,
         // right hand
              FN3, 6,   7,   8,   9,   0,   MINS,
              LBRC,Y,   U,   I,   O,   P,   RBRC,
@@ -126,7 +126,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        LEFT,DOWN,UP,  RGHT,FN2,
         RALT,RCTL,
         PGUP,
-        PGDN,ENT, SPC 
+        PGDN,ENT, SPC
     ),
 
     KEYMAP(  // layer 2 : function and symbol keys
@@ -172,18 +172,18 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         PGUP,
         PGDN,TRNS,BTN2
     ),
-    KEYMAP(  // layer 4 : Layout Selector
+    KEYMAP(  // layer 4 : Gaming layer
         // left hand
         FN0, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS, FN8, FN7,TRNS,TRNS,TRNS,TRNS,
+        TRNS, TRNS, TRNS,TRNS,TRNS,TRNS,FN11,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
-                                 TRNS,TRNS,TRNS,
+                                 SPC,TRNS,TRNS,
         // right hand
-             FN4, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
                   TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
@@ -210,11 +210,12 @@ static const uint16_t PROGMEM fn_actions[] = {
     [3] = ACTION_MODS_TAP_KEY(MOD_LALT, KC_DEL),
     [4] = ACTION_LAYER_OFF(3, ON_RELEASE),
     [5] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_BSPC),
-    [6] = ACTION_MODS_ONESHOT(MOD_LSFT),  
+    [6] = ACTION_MODS_ONESHOT(MOD_LSFT),
     [7] = ACTION_DEFAULT_LAYER_SET(0),  				// set colemak layout
     [8] = ACTION_DEFAULT_LAYER_SET(1),  				// set qwerty layout
     [9] = ACTION_LAYER_MOMENTARY(4),  					// Layout Selector
     [10] = ACTION_LAYER_TAP_KEY(3, KC_QUOT),
+    [11] = ACTION_LAYER_TOGGLE(4)            //Gaming layer overlay
 
 };
 

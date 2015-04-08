@@ -64,7 +64,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PPLS,PMNS,END, PGDN,DOWN,TRNS,TRNS,            \
                 TRNS,TRNS,          SPC,                TRNS,TRNS),
 
-    /* Layer 3: SpaceFN
+    /* Layer 3: SpaceFN On Hiatus
      * ,-----------------------------------------------------------.
      * |`  | F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|   |Del|
      * |-----------------------------------------------------------|
@@ -86,11 +86,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |`  | F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|   |Del|
      * |-----------------------------------------------------------|
-     * |     |   |   |Esc|   |   |   |Hom|Up |End|Psc|Slk|Pau|Ins  |
+     * |     |   |   |   |   |   |   |   |Up |   |   |   |   |     |
      * |-----------------------------------------------------------|
-     * |      |   |   |   |   |   |PgU|Lef|Dow|Rig|   |   |        |
+     * |      |   |   |   |   |   |   |Lef|Dow|Rig|   |   |        |
      * |-----------------------------------------------------------|
-     * |        |   |   |   |   |Spc|PgD|`  |~  |   |   |      |   |
+     * |        |   |   |   |   |   |   |   |   |   |   |      |   |
      * `-----------------------------------------------------------'
      *       |   |     |                       |     |   |
      *       `-------------------------------------------'
@@ -107,7 +107,6 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * user defined action function
  */
 enum function_id {
-    CTRL_SPACE_I,       // Ctrl + Up(SpaceFN) -> PgUp
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)

@@ -22,7 +22,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, GRV, BSLS,  \
            TAB, Q,   W,   F,   P,   G,   J,   L,   U,   Y,   SCLN,   LBRC,RBRC,BSPC,       \
             FN3,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,FN4,ENT,             \
-           LSFT,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH,RSFT,FN0,             \
+           FN5,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH,RSFT,FN0,             \
                 LGUI,LALT,          SPC,                RALT,RGUI),
 
  /* Layer 1: qwerty Layer
@@ -103,43 +103,8 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
-/*
- * user defined action function
- */
-enum function_id {
-};
 
-void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-#   define MODS_CTRL_MASK   (MOD_BIT(KC_LCTRL)|MOD_BIT(KC_RCTRL))
-    static uint8_t ctrl_space_i_prev_ctrl;
 
-    switch (id) {
-        // Ctrl + Up(SpaceFN) -> PgUp
-        case CTRL_SPACE_I:
-            ctrl_space_i_prev_ctrl = get_mods()&MODS_CTRL_MASK;
-            if (record->event.pressed) {
-                if (ctrl_space_i_prev_ctrl) {
-                    del_mods(ctrl_space_i_prev_ctrl);   // remove Ctrl
-                    add_key(KC_PGUP);
-                    send_keyboard_report(); // send PgUp without Ctrl
-                    add_mods(ctrl_space_i_prev_ctrl);   // return Ctrl but not sent
-                } else {
-                    add_key(KC_UP);
-                    send_keyboard_report();
-                }
-            } else {
-                if (ctrl_space_i_prev_ctrl) {
-                    del_key(KC_PGUP);
-                    send_keyboard_report();
-                } else {
-                    del_key(KC_UP);
-                    send_keyboard_report();
-                }
-            }
-            break;
-    }
-}
 
 
 /*
@@ -151,4 +116,5 @@ const uint16_t PROGMEM fn_actions[] = {
     [2] = ACTION_DEFAULT_LAYER_SET(1),
     [3] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC), 
     [4] = ACTION_LAYER_TAP_KEY(4, KC_QUOT),
+    [5] = ACTION_MODS_ONESHOT(MOD_LSFT),
 };

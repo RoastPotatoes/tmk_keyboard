@@ -52,7 +52,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             k28,k29,k2A,k2B,k2C,k2D,                            \
         k37,k38,k39,k3A,k3B,k3C,k3D,                            \
                 k49,k4A,k4B,k4C,k4D,                            \
-    k57,k58,                                                    \
+   k57,k58,                                                    \
     k59,                                                        \
     k5C,k5B,k5A )                                               \
                                                                 \
